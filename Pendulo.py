@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import math
 import getopt,sys
@@ -18,6 +17,8 @@ def verlet(xt,vt):
    f=vt+0.5*((-w)*math.sin(xt)-g*vt+aux)*dt
    return p,f
 
+dados=open('g07w7.txt','w')
+
 xt1=1
 vt1=0
 dt=0.01
@@ -32,24 +33,8 @@ while t1<60:
    x.append(xt1)
    v.append(vt1)
    t.append(t1)
-   
-   
-plt.figure(figsize=(6,5), dpi=96)
-#plt.axis([0,10,-0.2,0.2])
 
-ax=plt.gca()
-ax.xaxis.set_ticks_position('bottom')
-ax.yaxis.set_ticks_position('left')
-ax.autoscale()
-
-plt.rc('text', usetex=True)
-plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
-plt.xlabel('Tempo(s)')
-plt.ylabel(r'Posi\c{c}\~{a}o (m) eVelocidade($\frac{m}{s}$)')
-
-plt.title(r'Pendulum Moviment Valores Diferentes de $\gamma$ e $\omega^{2}_{0}$', fontsize=12)
-plt.grid()
-plt.plot(t,x,'r-', linewidth=1, label="$x_{(t)}$")
-plt.plot(t,v,'b-', linewidth=1, label="$v_{(t)}$")
-plt.legend(loc='upper right')
-plt.show()
+for i in range(len(t)):
+	dados.write("%f %f %f\n"%(t[i],x[i],v[i]))
+	
+dados.close()
