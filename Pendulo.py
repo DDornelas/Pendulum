@@ -20,31 +20,28 @@ x=[1]
 v=[0]
 t=[0]
 
-while t1<60:
+while t1<30:
    t1+=dt
    xt1,vt1=verlet(xt1,vt1)
    x.append(xt1)
    v.append(vt1)
    t.append(t1)
-   if t1<55:
-      print "x=%f; v=%f; t=%f\n"%(xt1,vt1,t1)
+   
    
 plt.figure(figsize=(6,5), dpi=96)
-plt.axis([0,55,-1.5,1])
 
 ax=plt.gca()
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
+ax.autoscale()
 
 plt.rc('text', usetex=True)
 plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
-plt.xlabel('Tempo(s)')
-plt.ylabel(r'Posi\c{c}\~{a}o (m) e Velocidade($\frac{m}{s}$)')
+plt.xlabel('Posi\c{c}\~{a}o (m)')
+plt.ylabel(r'Velocidade($\frac{m}{s}$)')
 
-plt.title(r'Pendulum Moviment', fontsize=12)
+plt.title(r'Pendulum Moviment Espa\c{c}o de Fases', fontsize=12)
 plt.grid()
-plt.plot(t,x,'r-', linewidth=1, label="$x_{(t)}$")
-plt.plot(t,v,'b-', linewidth=1, label="$v_{(t)}$")
-plt.legend(loc='upper right')
-plt.savefig("XxTVxT.pdf", dpi=96)
+plt.plot(x,v,'r-', linewidth=1)
+plt.savefig("XxV.pdf", dpi=96)
 plt.show()
