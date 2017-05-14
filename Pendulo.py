@@ -46,6 +46,5 @@ plt.grid()
 plt.plot(t,x,'r-', linewidth=1, label="$x_{(t)}$")
 plt.plot(t,v,'b-', linewidth=1, label="$v_{(t)}$")
 plt.legend(loc='upper right')
-plt.savefig("MVE.pdf", dpi=96)
+plt.savefig("XxTVxT.pdf", dpi=96)
 plt.show()
-
