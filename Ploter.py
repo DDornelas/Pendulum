@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-dados=open('g03w5.txt','r')
+dados=open('g07w7.txt','r')
 
 xt=[]
 vt=[]
@@ -13,24 +13,21 @@ for line in dados:
 	vt.append(float(v))
 	
 plt.figure(figsize=(6,5), dpi=96)
-plt.axis([0,60,-2,2])
 
 ax=plt.gca()
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
-#ax.autoscale()
+ax.autoscale()
 
 plt.rc('text', usetex=True)
 plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
-plt.xlabel('Tempo(s)')
-plt.ylabel(r'Posi\c{c}\~{a}o (m) e Velocidade($\frac{m}{s}$)')
+plt.xlabel('Posi\c{c}\~{a}o (m)')
+plt.ylabel(r'Velocidade($\frac{m}{s}$)')
 
-plt.title(r'Pendulum Moviment $\gamma$=0,3 $\omega^{2}_{0}$=5', fontsize=12)
+plt.title(r'Pendulum Moviment Espa\c{c}o de Fases $\gamma$=0,7 $\omega^{2}_{0}$=7', fontsize=12)
 plt.grid()
-plt.plot(t1,xt,'r-', linewidth=1, label="$x_{(t)}$")
-plt.plot(t1,vt,'b-', linewidth=1, label="$v_{(t)}$")
-plt.legend(loc='upper right')
-plt.savefig("G03W5.pdf", dpi=96)
+plt.plot(xt,vt,'r-', linewidth=1)
+plt.savefig("EFG07W7.pdf", dpi=96)
 plt.show()
 
 dados.close()
