@@ -29,7 +29,7 @@ t1=0
 x=[1]
 v=[0]
 t=[0]
-et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1*(np.pi/180))))
+et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1)))
 e=[et]
 
 while t1<60:
@@ -38,7 +38,7 @@ while t1<60:
    x.append(xt1)
    v.append(vt1)
    t.append(t1)
-   et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1*(np.pi/180))))
+   et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1)))
    e.append(et)
 
 for i in range(len(t)):

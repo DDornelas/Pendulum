@@ -11,11 +11,12 @@ for line in dados:
 	et.append(float(e))
 	
 plt.figure(figsize=(6,5), dpi=96)
-plt.axis([-0.5,60,-0.1,0.6])
+plt.axis([-0.5,60,-1,30])
 
 ax=plt.gca()
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
+#ax.autoscale()
 
 plt.rc('text', usetex=True)
 plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
