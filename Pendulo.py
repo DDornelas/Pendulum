@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import math
 import getopt,sys
@@ -17,8 +18,10 @@ def verlet(xt,vt):
    f=vt+0.5*((-w)*math.sin(xt)-g*vt+aux)*dt
    return p,f
 
-dados=open('g07w7.txt','w')
+dados=open('energy.txt','w')
 
+g=9.8
+m=1
 xt1=1
 vt1=0
 dt=0.01
@@ -26,6 +29,8 @@ t1=0
 x=[1]
 v=[0]
 t=[0]
+et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1*(np.pi/180))))
+e=[et]
 
 while t1<60:
    t1+=dt
@@ -33,8 +38,10 @@ while t1<60:
    x.append(xt1)
    v.append(vt1)
    t.append(t1)
+   et=(0.5*m*(vt1**2))+((m*((g**2)/w)*math.sin(xt1*(np.pi/180))))
+   e.append(et)
 
 for i in range(len(t)):
-	dados.write("%f %f %f\n"%(t[i],x[i],v[i]))
+	dados.write("%f %f\n"%(t[i],e[i]))
 	
 dados.close()

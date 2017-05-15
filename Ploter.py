@@ -1,33 +1,31 @@
 import matplotlib.pyplot as plt
 
-dados=open('g07w7.txt','r')
+dados=open('energy.txt','r')
 
-xt=[]
-vt=[]
+et=[]
 t1=[]
 
 for line in dados:
-	t,x,v = line.split()
+	t,e = line.split()
 	t1.append(float(t))
-	xt.append(float(x))
-	vt.append(float(v))
+	et.append(float(e))
 	
 plt.figure(figsize=(6,5), dpi=96)
+plt.axis([-0.5,60,-0.1,0.6])
 
 ax=plt.gca()
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
-ax.autoscale()
 
 plt.rc('text', usetex=True)
 plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
-plt.xlabel('Posi\c{c}\~{a}o (m)')
-plt.ylabel(r'Velocidade($\frac{m}{s}$)')
+plt.xlabel('Tempo (s)')
+plt.ylabel(r'Energia (N)')
 
-plt.title(r'Pendulum Moviment Espa\c{c}o de Fases $\gamma$=0,7 $\omega^{2}_{0}$=7', fontsize=12)
+plt.title(r'Pendulum Moviment Comportamento da Energia', fontsize=12)
 plt.grid()
-plt.plot(xt,vt,'r-', linewidth=1)
-plt.savefig("EFG07W7.pdf", dpi=96)
+plt.plot(t1,et,'r-', linewidth=1)
+plt.savefig("Energy.pdf", dpi=96)
 plt.show()
 
 dados.close()
